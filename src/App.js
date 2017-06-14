@@ -34,19 +34,31 @@ class App extends Component {
       type: event.target.value
     });
 
+    return true;
+
   }
 
   handleAmountChange(event) {
 
+    let value = event.target.value;
+
+    if(value.includes('.')) {
+      value = value.replace('.', '');
+    }
+
     this.setState({
-      amount: event.target.value
+      amount: value
     });
+
+    return true;
 
   }
 
   handleDateChange(date) {
 
     this.setState({ date });
+
+    return true;
 
   }
 
@@ -96,7 +108,7 @@ class App extends Component {
                     <div className="col-md-8">
                       <div className="input-group">
                         {this.state.type === 'pou' ? <span className="input-group-addon">£</span> : ''}
-                        <input type="number" className="form-control" value={this.state.amount} onChange={this.handleAmountChange} />
+                        <input type="number" className="form-control" value={this.state.amount} onChange={this.handleAmountChange} min="0" step="1" />
                         {this.state.type === 'per' ? <span className="input-group-addon">%</span> : ''}
                       </div>
                     </div>

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 
 import DatePicker from 'react-datepicker';
-// eslint-disable-next-line
 import moment from 'moment';
 
 import ClipboardButton from 'react-clipboard.js';
